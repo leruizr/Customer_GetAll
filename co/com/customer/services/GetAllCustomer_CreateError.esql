@@ -1,0 +1,14 @@
+BROKER SCHEMA co.com.customer.services
+
+
+CREATE COMPUTE MODULE GetAllCustomer_CreateError
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

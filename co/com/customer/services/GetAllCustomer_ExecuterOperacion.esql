@@ -1,0 +1,15 @@
+BROKER SCHEMA co.com.customer.services
+
+
+CREATE COMPUTE MODULE GetAllCustomer_ExecuterOperacion
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		--llamado al procedimiento de copia del mensaje
+		CALL CopyEntireMessage();
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END; 
+END MODULE;
